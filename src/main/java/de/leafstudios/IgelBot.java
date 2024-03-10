@@ -1,10 +1,12 @@
 package de.leafstudios;
 
+import de.leafstudios.commands.WhiteList;
 import de.leafstudios.events.EventManager;
 import de.leafstudios.events.SlashEventHandler;
 import de.leafstudios.listeners.Listener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.SlashCommandInteraction;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
@@ -35,8 +37,6 @@ public class IgelBot {
         }
 
         registerEvents();
-        eventManager.getCmds().add(Commands.slash("sus","test"));
-        jda.updateCommands().addCommands(eventManager.getCmds()).queue();
     }
 
     private void registerEvents(){
@@ -74,6 +74,7 @@ public class IgelBot {
                 System.out.println(interaction.getGuild().getMembers());
             }
         });
+        eventManager.addEvent( Commands.slash("whitelist", "whitelist a player").addOption(OptionType.STRING,"name","name of the player to be whitelisted"), new WhiteList());
     }
 
     public void handle(SlashCommandInteraction e){

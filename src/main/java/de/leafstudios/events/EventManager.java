@@ -2,6 +2,7 @@ package de.leafstudios.events;
 
 import de.leafstudios.IgelBot;
 import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.interactions.commands.Command;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
@@ -24,6 +25,11 @@ public class EventManager {
         slashEvents.put(name,handler);
         cmds.add(Commands.slash(name,desc));
         //IgelBot.getInstance().getJda().updateCommands().addCommands(Commands.slash(name,desc)).queue();
+    }
+
+    public void addEvent(CommandData cmd,SlashEventHandler handler){
+        slashEvents.put(cmd.getName(),handler);
+        cmds.add(cmd);
     }
 
     public @Nullable SlashEventHandler getHandler(String name){
