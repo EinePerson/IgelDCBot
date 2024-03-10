@@ -3,6 +3,8 @@ plugins {
     id 'java'
 }
 
+apply plugin: 'application'
+
 group = 'de.leafstudios'
 version = '1.0-SNAPSHOT'
 
@@ -22,5 +24,11 @@ test {
 }
 
 application {
-    mainClass.set("de.leafstudios.Main")
+    mainClass = "de.leafstudios.Main"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': "de.leafstudios.Main"
+    }
 }

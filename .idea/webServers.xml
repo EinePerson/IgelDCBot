@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b9acfab9-0b55-4989-aea9-c3ce40f69018" name="IgelServer">
+        <fileTransfer rootFolder="/home/igel/IgelDCBot" accessType="SFTP" host="192.168.178.101" port="22" sshConfigId="03386f40-96c9-440f-bf10-de1f584a9d5f" sshConfig="igel@192.168.178.101:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
